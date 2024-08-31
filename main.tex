@@ -1,0 +1,139 @@
+\documentclass[12pt,a4paper]{report}
+
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath,amsfonts,amssymb} % must required for your math type
+\usepackage{inputenc}
+\usepackage{wallpaper}
+\usepackage{tikz} % plot edit
+\usepackage{xcolor}
+\usepackage{geometry}% typographical
+\usepackage{color}
+\usepackage{units}
+\usepackage{fontspec} % 字体包
+\usepackage{unicode-math} % 数学字体包
+\usepackage[most]{tcolorbox}
+\usepackage{fvextra}
+\usepackage{fancyhdr} % fncychap(various of styles of chapters)
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable, theorems}
+\usepackage{bm}
+
+
+% 定义一个新的计数器，并让它依赖于章节计数器
+\newcounter{definitioncounter}[section]
+% 定义编号格式，例如：1.1, 1.2, 2.1, 等等
+\renewcommand{\thedefinitioncounter}{\thesection.\arabic{definitioncounter}}
+\newcommand{\definition}[1]{%
+  \refstepcounter{definitioncounter}% 增加计数器，并使其值可引用
+  \textcolor{deepblue}{\sffamily\large\textbf{Definition \thedefinitioncounter: #1}}% 显示带编号的标题
+}
+
+\newtheorem{lemma}{\textit{lemma}}[section]
+\newtheorem{inference}{Inference}[section]
+\newtheorem{axiom}{Axiom}[section]
+
+
+\newcounter{theoremcounter}[section]
+\renewcommand{\thetheoremcounter}{\thesection.\arabic{theoremcounter}}
+\newcommand{\theorem}[1]{%
+  \refstepcounter{theoremcounter}
+  \textcolor{theoremcolor!50!black}{\sffamily\large\textbf{Theorem \thetheoremcounter: #1}}
+}
+
+\newcounter{examplecounter}[chapter]
+\renewcommand{\theexamplecounter}{\thechapter.\arabic{examplecounter}}
+\newcommand{\example}{
+  \refstepcounter{examplecounter}
+  \textcolor{red!50!black}{\sffamily\large\textbf{Example \theexamplecounter}}
+}
+
+
+
+\cfoot{\thepage} % controled by package fancyhdr
+
+
+
+\setmainfont{Times New Roman} %text font
+\setmathfont{XITS Math} %math font
+
+
+
+%where I put all my predefined stuff
+\definecolor{definecolororeage}{RGB}{255, 126, 33}
+\definecolor{yellow}{RGB}{255, 241, 181}
+\definecolor{deepblue}{RGB}{10, 120, 255}
+\definecolor{theoremcolor}{RGB}{23, 135, 163}
+\def\eq1{e^{i\theta}=\cos(\theta)+i\sin(\theta)}
+
+% 这边定义了一个文本分割线
+\newcommand{\customline}[4][center]{
+    \noindent % 段落不缩进
+    \ifx#1left
+        \makebox[0pt][l]{\textcolor{#4}{\rule{#2}{#3}}} % 左对齐
+    \else\ifx#1right
+        \makebox[\textwidth][r]{\textcolor{#4}{\rule{#2}{#3}}} % 右对齐
+    \else
+        \makebox[\textwidth]{\textcolor{#4}{\rule{#2}{#3}}} % 置中
+    \fi\fi
+}
+
+
+%from here all above is preamble 
+
+%where I do all the type begin
+\begin{document}
+
+
+%here is your title page
+
+\newgeometry{top=0cm,left=0cm,right=0cm}
+\begin{titlepage}
+  %you can use \maketitle make title author date displace directly
+  \centering
+  % Insert the image
+  \centerline{\includegraphics[width=\textwidth]{material/gochiusa_april2024.jpg}}%put any picture you prefer
+  \customline[center]{\textwidth}{25pt}{definecolororeage} % argument: align style (left/center/right), length, width, color
+  \vspace*{1cm} % Adjust space between the image and the title
+   \begin{flushleft}
+    \hspace*{2cm} 
+    \begin{minipage}{\textwidth} 
+        \Huge\textbf{\textrm{Here is your title}} 
+        \vspace{1cm} 
+        \par 
+        \huge{here is your university} 
+        \par 
+        \huge{here is your department} 
+    \end{minipage}
+  \end{flushleft}
+  \vfill
+  \begin{flushleft}
+    \hspace{2cm}
+    \large{author:here is your name}
+  \end{flushleft}
+\end{titlepage}
+\restoregeometry
+
+
+\newgeometry{top=4cm}
+
+%main body start here
+
+
+
+
+\chapter*{Abstract}
+here is abstract here is abstract here is abstract
+
+\chapter*{Some useful formula}
+qqqqq
+\tableofcontents
+
+
+
+%next generate new chapter files and use \include{chapter file}
+
+
+
+\end{document} %where I do all the type end 
+
+
