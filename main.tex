@@ -23,7 +23,7 @@
 \newcounter{definitioncounter}[section]
 % 定义编号格式，例如：1.1, 1.2, 2.1, 等等
 \renewcommand{\thedefinitioncounter}{\thesection.\arabic{definitioncounter}}
-\newcommand{\definition}[1]{%
+\newcommand{\definition}[1]{
   \refstepcounter{definitioncounter}% 增加计数器，并使其值可引用
   \textcolor{deepblue}{\sffamily\large\textbf{Definition \thedefinitioncounter: #1}}% 显示带编号的标题
 }
@@ -35,7 +35,7 @@
 
 \newcounter{theoremcounter}[section]
 \renewcommand{\thetheoremcounter}{\thesection.\arabic{theoremcounter}}
-\newcommand{\theorem}[1]{%
+\newcommand{\theorem}[1]{
   \refstepcounter{theoremcounter}
   \textcolor{theoremcolor!50!black}{\sffamily\large\textbf{Theorem \thetheoremcounter: #1}}
 }
