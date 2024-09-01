@@ -1,0 +1,441 @@
+"Add limit": {
+	"prefix": "lim",
+	"body": [
+		"\\lim_{$1\\to$2}$3"
+	],
+	"description": "add a limit"
+},
+	"1-dim definite integral": {
+	"prefix": "int1",
+	"body": [
+		"\\int_${1:a}^${2:b} ${3:f(x)} \\textrm{d} $4"
+	],
+	"description": "add a 1-dim definite integral"
+},
+	"1-dim integral": {
+	"prefix": "int",
+	"body": [
+		"\\int ${1:f(x)} \\textrm{d} $2"
+	],
+	"description": "add a 1-dim integral"
+},
+	"2-dim integral": {
+	"prefix": "int",
+	"body": [
+		"\\iint ${1:f(x)} \\textrm{d} $2"
+	],
+	"description": "add a 2-dim integral"
+},
+	"1-dim contour integral": {
+	"prefix": "oint",
+	"body": [
+		"\\oint_{${1|l,C|}} ${2:f(x,y)} \\textrm{d} $3"
+	],
+	"description": "add a 1-dim contour integral"
+},
+	"left align": {
+	"prefix": "leftalign",
+	"body": [
+		"\\begin{flushleft}",
+		"${TM_SELECTED_TEXT}$1",
+		"\\end{flushleft}"
+	],
+	"description": "left-aligned text"
+},
+	"right align": {
+	"prefix": "rightalign",
+	"body": [
+		"\\begin{flushright}",
+		"${TM_SELECTED_TEXT}$1",
+		"\\end{flushright}"
+	],
+	"description": "center-aligned text"
+},
+	"center align": {
+	"prefix": "centeralign",
+	"body": [
+		"\\begin{center}",
+		"${TM_SELECTED_TEXT}$1",
+		"\\end{center}"
+	],
+	"description": "center-aligned text"
+},
+	"do integral": {
+	"prefix": "int1",
+	"body": [
+		"\\int_${1:a}^${2:b} ${TM_SELECTED_TEXT:${3:f(x)}} \\textrm{d} $4"
+	],
+	"description": "do 1-dim definite integral"
+},
+"new environment":{
+	"prefix": "NE",
+	"body": [
+		"\\begin{$1}",
+		"${TM_SELECTED_TEXT:$2}",
+		"\\end{$1}"
+	],
+	"description": "create a new environment"
+},
+"defination textbox":{
+	"prefix": "def",
+	"body": [
+		"\\begin{tcolorbox}[colback=yellow!30!white,width=\\textwidth,boxrule=0pt]",
+		"\\definition{$1}\\newline",
+		"\\newline",
+		"${TM_SELECTED_TEXT:$2}",
+		"\\end{tcolorbox}"
+	],
+	"description":"create a box for definition, must work with predefined command" 
+},
+"defination style":{
+	"prefix": "defstyle",
+	"body": [
+		"\\newcounter{definitioncounter}[section]",
+		"\\renewcommand{\\thedefinitioncounter}{\\thesection.\\arabic{definitioncounter}}",
+		"\\newcommand{\\definition}[1]{",
+		"\\refstepcounter{definitioncounter}",
+		"\\textcolor{deepblue}{\\sffamily\\large\\textbf{Definition \\thedefinitioncounter: #1}}",
+	],
+	"description":"contant of predefined command of definition box" 
+},
+"new section":{
+	"prefix": "NS",
+	"body": [
+		"\\section{\\textcolor{red!70!black}{$1}}",
+		"$2"
+	],
+	"description":"contant of predefined command of definition box" 
+},
+"Theorem textbox":{
+	"prefix": "th",
+	"body": [
+		"\\begin{tcolorbox}[colback=theoremcolor!20!white,width=\\textwidth,boxrule=0pt]",
+		"\\theorem{$1}\\newline",
+		"\\newline",
+		"$2",
+		"\\end{tcolorbox}"
+	],
+	"description":"create a box for theorem, must work with predefined command" 
+},
+"Theorem style":{
+	"prefix": "thstyle",
+	"body": [
+		"\\newcounter{theoremcounter}[section]",
+		"\\renewcommand{\\thetheoremcounter}{\\thesection.\\arabic{theoremcounter}}",
+		"\\newcommand{\\theorem}[1]{",
+		"\\refstepcounter{theoremcounter}",
+		"\\textcolor{deepblue}{\\sffamily\\large\\textbf{Theorem \\thetheoremcounter: #1}}",
+	],
+	"description":"contant of predefined command of Theorem box" 
+},
+"frac":{
+	"prefix": "frac",
+	"body": [
+		"\\frac{$1}{$2}"
+	],
+	"description": "create a frac"
+},
+"example textbox":{
+	"prefix": "exp",
+	"body": [
+		"\\customline[center]{\\textwidth}{1pt}{black}",
+		"\\newline",
+		"\\example",
+		"\\newline",
+		"${TM_SELECTED_TEXT:$1}",
+		"\\newline",
+		"\\customline[center]{\\textwidth}{1pt}{black}"
+	],
+	"description": "create an area for example, must work with predefined command"
+},
+"differential order 1":{
+	"prefix": "diff",
+	"body": [
+		"\\frac{\\mathrm{d}$1}{\\mathrm{d}$2}"
+	],
+	"description": "do order one differential"
+},
+"differential higher order":{
+	"prefix": "Diff",
+	"body": [
+		"\\frac{\\mathrm{d}^$1$2}{\\mathrm{d}$3^$1}"
+	],
+	"description": "do higher order differential"
+},
+"important formula":{
+	"prefix": "impf",
+	"body": [
+		"\\begin{center}",
+		"\\begin{tcolorbox}[colback=blue!30!white,width=0.6\\textwidth,boxrule=0pt]",
+		"$1",
+		"\\end{tcolorbox}",
+		"\\end{center}"
+	],
+	"description": "mark important formula"
+},
+"Notation text box":{
+	"prefix": "nota",
+	"body": [
+		"\\begin{tcolorbox}[colback=yellow!70!white,width=\\textwidth,boxrule=0pt]",
+		"\\subsection*{Notation}",
+		"$1",
+		"\\end{tcolorbox}",
+	],
+	"description": "create a textbox for notation"
+},
+"solution area":{
+	"prefix": "solu",
+	"body": [
+		"\\subsection*{\\textcolor{red!80!black}{\\sffamily\\large\\textit{solution}}}",
+		"$1"
+	],
+	"description": "create an area for solution"
+},
+"proof area":{
+	"prefix": "proof",
+	"body": [
+		"\\subsection*{\\textcolor{red!80!black}{\\sffamily\\large\\textit{proof}}}",
+		"$1"
+	],
+	"description": "create an area for proof"
+},
+"vector":{
+	"prefix": "vec",
+	"body": [
+		"\\vec{${TM_SELECTED_TEXT:$1}}"
+	],
+	"description": "add vector value in line"
+},
+"align environment":{
+	"prefix": "align",
+	"body": [
+		"\\begin{align}",
+		"${TM_SELECTED_TEXT:$1}",
+		"\\end{align}"
+	],
+	"description": "add align environment"
+},
+"equation environment":{
+	"prefix": "equa",
+	"body": [
+		"\\begin{equation}",
+		"${TM_SELECTED_TEXT:$1}",
+		"\\end{equation}"
+	],
+	"description": "add equation environment"
+},
+"add itemize environment":{
+	"prefix": "item",
+	"body": [
+		"\\begin{itemize}",
+		"\\item $1",
+		"\\item $2",
+		"\\end{itemize}"
+	],
+	"description": "add itemize environment"
+},
+"split environment":{
+	"prefix": "split",
+	"body": [
+		"\\begin{split}",
+		"${TM_SELECTED_TEXT:$1}",
+		"\\end{split}"
+	],
+	"description": "add split environment"
+},
+"idenity vector":{
+	"prefix": "ivec",
+	"body": [
+		"\\hat{\\vec{${1:e}}}_{$2}"
+	],
+	"description": "add idenity vector value in line"
+},
+"absolute value":{
+	"prefix": "abs",
+	"body": [
+		"\\vert $1 \\vert"
+	],
+	"description": "add absolute value in line"
+},
+"norm":{
+	"prefix": "norm",
+	"body": [
+		"\\Vert \\vec{$1} \\Vert"
+	],
+	"description": "add norm in line"
+},
+"math inline":{
+	"prefix": "inm",
+	"body": [
+		"$ $1 $"
+	],
+	"description": "add math content in line"
+},
+"math outline":{
+	"prefix": "oum",
+	"body": [
+		"\\[",
+		"$1",
+		"\\]"
+	],
+	"description": "add math content out line"
+},
+"add sqare root":{
+	"prefix": "sqrt",
+	"body": [
+		"\\sqrt[$2]{${TM_SELECTED_TEXT:$1}}"
+	],
+	"description": "do sqare root"
+},
+"cross product":{
+	"prefix": "cross",
+	"body": [
+		"$1 \\cross $2"
+	],
+	"description": "do cross product"
+},
+"dot product":{
+	"prefix": "dot",
+	"body": [
+		"${TM_SELECTED_TEXT:$1} \\cdot $2"
+	],
+	"description": "do dot product"
+},
+"partial differential higher order":{
+	"prefix": "Pd",
+	"body": [
+		"\\frac{\\partial^$1 $2}{\\partial $3^$1}"
+	],
+	"description": "do higher order partial differential"
+},
+"partial differential ":{
+	"prefix": "pd",
+	"body": [
+		"\\frac{\\partial $1}{\\partial $2}"
+	],
+	"description": "do higher order partial differential"
+},
+"add 2-dim matrix":{
+	"prefix": "mat2",
+	"body": [
+		"\\begin{bmatrix}",
+		"$1  &  $2 \\n",
+		"$3  &  $4 \\n",
+		"\\end{bmatrix}"
+	],
+	"description": "add a dim-2 matrix"
+},
+"add 3-dim matrix":{
+	"prefix": "mat3",
+	"body": [
+		"\\begin{bmatrix}",
+		"$1  &  $2  &$3\\n",
+		"$4  &  $5  &$6\\n",
+		"$7  &  $8  &$9\\n",
+		"\\end{bmatrix}"
+	],
+	"description": "add a dim-3 matrix"
+},
+"add 3-dim determinant":{
+	"prefix": "det3",
+	"body": [
+		"\\left | \\begin{array}{cccc}",
+		"$1  &  $2  &$3\\n",
+		"$4  &  $5  &$6\\n",
+		"$7  &  $8  &$9\\n",
+		"\\end{array} \\right |"
+	],
+	"description": "add a dim-3 determinant"
+},
+"add 2-dim determinant":{
+	"prefix": "det2",
+	"body": [
+		"\\left | \\begin{array}{cccc}",
+		"$1  &  $2 \\n",
+		"$3  &  $4 \\n",
+		"\\end{array} \\right |"
+	],
+	"description": "add a dim-2 determinant"
+},
+"roman text in math line":{
+	"prefix": "rm",
+	"body": [
+		"\\textrm{${TM_SELECTED_TEXT}$1}"
+	],
+	"description": "add normal text in math line"
+},
+"gradient":{
+	"prefix": "Grad",
+	"body": [
+		"\\textrm{grad} ${TM_SELECTED_TEXT}$1"
+	],
+	"description": "add gradient"
+},
+"divergence":{
+	"prefix": "Div",
+	"body": [
+		"\\textrm{div} ${TM_SELECTED_TEXT}$1"
+	],
+	"description": "add divergence"
+},
+"curl":{
+	"prefix": "Rot",
+	"body": [
+		"\\textrm{rot} ${TM_SELECTED_TEXT}$1"
+	],
+	"description": "add curl"
+},
+"split and align environment":{
+	"prefix": "spali",
+	"body": [
+		"\\begin{align}",
+		"\\begin{split}",
+		"${TM_SELECTED_TEXT}$1",
+		"\\end{split}",
+		"\\end{align}"
+	],
+	"description": "add split environment"
+},
+"nabla":{
+	"prefix": "nabla",
+	"body": [
+		"\\vec{\\nabla}"
+	],
+	"description": "add nabla sign"
+},
+"laplace":{
+	"prefix": "laplace",
+	"body": [
+		"\\laplace"
+	],
+	"description": "add laplace sign"
+},
+"gradient symbol":{
+	"prefix": "grad",
+	"body": [
+		"\\vec{\\nabla} ${TM_SELECTED_TEXT}$1"
+	],
+	"description": "add gradient"
+},
+"divergence symbol":{
+	"prefix": "div",
+	"body": [
+		"\\vec{\\nabla} ${TM_SELECTED_TEXT}$1"
+	],
+	"description": "add divergence"
+},
+"curl symbol":{
+	"prefix": "rot",
+	"body": [
+		"\\vec{\\nabla} \\cross ${TM_SELECTED_TEXT}$1"
+	],
+	"description": "add curl"
+},
+"Electrical constant":{
+	"prefix": "ke",
+	"body": [
+		"\\frac{${1:1}}{4\\pi\\epsilon_0}"
+	],
+	"description": "add Electrical constant"
+},
+}
